@@ -24,7 +24,9 @@ public class BesTelegramBot extends TelegramLongPollingBot {
 
 
     public BesTelegramBot() {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+        this.commandContainer = new CommandContainer(
+                new SendBotMessageServiceImpl(this)
+        );
     }
 
 
