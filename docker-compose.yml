@@ -1,10 +1,21 @@
-version: '3.1'
-
 services:
-  jrtb:
-    build:
-      context: .
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
     environment:
-      - BOT_NAME=${BOT_NAME}
-      - BOT_TOKEN=${BOT_TOKEN}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/besshop
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: root
+
+  db:
+    image: postgres:latest
     restart: always
+    environment:
+      POSTGRES_DB: besshop
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
