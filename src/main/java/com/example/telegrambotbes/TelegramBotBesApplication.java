@@ -14,19 +14,16 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 @SpringBootApplication
 public class TelegramBotBesApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(TelegramBotBesApplication.class);
 
     public static void main(String[] args) {
-        logger.info("Starting TelegramBotBesApplication");
         SpringApplication.run(TelegramBotBesApplication.class, args);
-        logger.info("TelegramBotBesApplication started successfully");
+
     }
 
     @Bean
     public TelegramBotsApi telegramBotsApi(BesTelegramBot bot) throws TelegramApiException {
         TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
         botsApi.registerBot(bot);
-        logger.info("✅ Бот успешно зарегистрирован в TelegramBotsApi!");
         return botsApi;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.telegrambotbes.model;
+package com.example.telegrambotbes.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

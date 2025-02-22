@@ -1,6 +1,6 @@
 package com.example.telegrambotbes.repo;
 
-import com.example.telegrambotbes.model.Product;
+import com.example.telegrambotbes.Entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
