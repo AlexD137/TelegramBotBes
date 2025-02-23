@@ -1,9 +1,6 @@
 package com.example.telegrambotbes.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 
@@ -14,7 +11,10 @@ import lombok.Data;
 public class TelegramUser {
 
     @Id
-    @Column(name = "chat_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "chatId")
     private String chatId;
 
     @Column(name = "active")
