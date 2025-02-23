@@ -5,6 +5,7 @@ import com.example.telegrambotbes.repo.TelegramUserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +22,7 @@ public class TelegramUserServiceImpl implements TelegramUserService {
     }
 
     @Override
+    @Transactional
     public void save(TelegramUser telegramUser) {
         telegramUserRepository.save(telegramUser);
         log.debug("saved telegramUser: {} в телеграм сервисе", telegramUser);
