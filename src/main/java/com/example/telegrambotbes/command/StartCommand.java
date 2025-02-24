@@ -28,10 +28,13 @@ public class StartCommand implements Command {
         telegramUserService.findByChatId(chatId).ifPresentOrElse(
                 user -> {
                     user.setActive(true);
+                    log.debug("Вызван метод setActive в оптионал");
                     telegramUserService.save(user);
+
                 },
                 () -> {
                     TelegramUser telegramUser = new TelegramUser();
+                    log.debug("Создан тг юзер{}", telegramUser);
                     telegramUser.setActive(true);
                     telegramUser.setChatId(chatId);
                     telegramUserService.save(telegramUser);
